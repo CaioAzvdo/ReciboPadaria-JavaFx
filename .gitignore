@@ -37,4 +37,4 @@ build/
 ### Mac OS ###
 .DS_Store
 
-./Docker-Compose/data
+./Docker-Compose/data/
