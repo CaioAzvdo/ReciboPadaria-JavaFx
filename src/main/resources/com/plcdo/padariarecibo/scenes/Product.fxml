@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plcdo.padariarecibo.scenes.Product">
+   <children>
+      <Label alignment="CENTER" layoutX="451.0" layoutY="38.0" text="Cadastro de Produtos">
+         <font>
+            <Font size="37.0" />
+         </font>
+      </Label>
+      <Separator layoutX="268.0" layoutY="104.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <GridPane layoutX="350.0" layoutY="130.0" prefHeight="248.0" prefWidth="559.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="61.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="59.0" minHeight="7.0" prefHeight="33.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="62.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="53.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="47.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="56.0" minHeight="10.0" prefHeight="56.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label alignment="CENTER" prefHeight="175.0" prefWidth="533.0" text="CODIGO">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="35.0" prefWidth="534.0" text="NOME" GridPane.rowIndex="2">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="35.0" prefWidth="534.0" text="PREÇO" GridPane.rowIndex="4">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextField prefWidth="559.0" GridPane.rowIndex="1" />
+            <TextField prefHeight="46.0" prefWidth="561.0" GridPane.rowIndex="3" />
+            <TextField GridPane.rowIndex="5" />
+            <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.rowIndex="6">
+              <buttons>
+                <Button mnemonicParsing="false" text="Salvar" />
+                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="422.0" text="Editar" />
+              </buttons>
+            </ButtonBar>
+         </children>
+      </GridPane>
+      <TableView layoutX="4.0" layoutY="419.0" prefHeight="294.0" prefWidth="1271.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+        <columns>
+          <TableColumn prefWidth="76.0" text="CODIGO" />
+          <TableColumn prefWidth="1035.0" text="NOME" />
+            <TableColumn minWidth="0.0" prefWidth="154.0" text="PREÇO" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
