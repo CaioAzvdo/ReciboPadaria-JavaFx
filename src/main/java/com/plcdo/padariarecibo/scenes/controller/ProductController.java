@@ -51,7 +51,7 @@ public class ProductController implements Initializable {
             AnchorPane anchorPane = fxmlLoader.load();
 
             Stage stage = new Stage();
-            stage.setTitle("Register Product");
+            stage.setTitle("Registrar Produto");
             stage.setScene(new Scene(anchorPane));
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
