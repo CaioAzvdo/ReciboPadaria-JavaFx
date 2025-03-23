@@ -5,6 +5,8 @@ import com.plcdo.padariarecibo.scenes.repository.ProductRepository;
 import com.plcdo.padariarecibo.scenes.util.ConnectionConfig;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductDao implements ProductRepository {
@@ -15,7 +17,26 @@ public class ProductDao implements ProductRepository {
 
     @Override
     public List<Product> findAll() {
-        return List.of();
+        List<Product> products = new ArrayList<Product>();
+        try{
+            ResultSet rs = null;
+            String sql = "SELECT * FROM products";
+            PreparedStatement ps = ConnectionConfig.getConnection().prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Product product = new Product();
+                product.setId(rs.getLong("id"));
+                product.setCode(rs.getString("code"));
+                product.setName(rs.getString("name"));
+                product.setPrice(rs.getDouble("price"));
+                products.add(product);
+
+            }
+        }catch (Exception e){
+            System.out.println("Error when trying to find all products: "+e.getMessage());
+        }
+
+        return products;
     }
 
     @Override
@@ -36,7 +57,8 @@ public class ProductDao implements ProductRepository {
 
     @Override
     public void delete(Long id) {
-
+       String sql = "DELETE FROM products WHERE id = ?";
+              
     }
 
     @Override
