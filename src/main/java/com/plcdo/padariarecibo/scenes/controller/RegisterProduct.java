@@ -10,12 +10,6 @@ import javafx.stage.Stage;
 
 public class RegisterProduct {
     @FXML
-    private Button bt_delete;
-
-    @FXML
-    private Button bt_edit;
-
-    @FXML
     private Button bt_save;
 
     @FXML
@@ -26,19 +20,21 @@ public class RegisterProduct {
 
     @FXML
     private TextField tf_price;
+
     Product product = new Product();
     ProductDao productDao = new ProductDao();
+    ProductController productController = new ProductController();
 
     public void save(){
-        if(!validateFields()){
+        if(validateFields()){
             product.setCode(tf_code.getText().toString());
             product.setName(tf_name.getText().toString());
             String priceText = tf_price.getText().replace(",", ".");
             product.setPrice(Double.parseDouble(priceText));
             productDao.save(product);
+            Stage stage = (Stage) bt_save.getScene().getWindow();
+            stage.close();
         }
-        Stage stage = (Stage) bt_save.getScene().getWindow();
-        stage.close();
     }
     public boolean validateFields(){
         StringBuffer message = new StringBuffer();

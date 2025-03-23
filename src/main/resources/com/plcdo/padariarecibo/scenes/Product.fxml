@@ -23,6 +23,6 @@
             <TableColumn fx:id="tc_price" minWidth="0.0" prefWidth="154.0" text="PREÇO" />
         </columns>
       </TableView>
-      <Button layoutX="58.0" layoutY="45.0" mnemonicParsing="false" onAction="#registerProductScreen" text="Registrar" />
+      <Button layoutX="44.0" layoutY="38.0" mnemonicParsing="false" onAction="#registerProductScreen" prefHeight="53.0" prefWidth="101.0" text="Registrar" />
    </children>
 </AnchorPane>
