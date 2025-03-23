@@ -1,4 +1,6 @@
 package com.plcdo.padariarecibo.scenes.controller;
+import com.plcdo.padariarecibo.scenes.dao.ProductDao;
+import com.plcdo.padariarecibo.scenes.model.Product;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -28,6 +30,11 @@ public class ProductController implements Initializable {
         private TextField tf_name;
         @FXML
         private TextField tf_price;
+
+        Product product = new Product();
+        ProductDao productDao = new ProductDao();
+
+
     @FXML
     public void show() {
         String name = tf_name.getText().toString();
@@ -43,4 +50,13 @@ public class ProductController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+
+    public void save(){
+            product.setCode(tf_code.getText().toString());
+            product.setName(tf_name.getText().toString());
+            String priceText = tf_price.getText().replace(",", ".");
+            product.setPrice(Double.parseDouble(priceText));
+            productDao.save(product);
+    }
+
 }

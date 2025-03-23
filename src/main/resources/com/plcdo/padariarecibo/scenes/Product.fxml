@@ -55,7 +55,7 @@
             <TextField fx:id="tf_price" GridPane.rowIndex="5" />
             <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.rowIndex="6">
               <buttons>
-                <Button fx:id="bt_save" mnemonicParsing="false" onAction="#show" text="Salvar" />
+                <Button fx:id="bt_save" mnemonicParsing="false" onAction="#save" text="Salvar" />
                   <Button fx:id="bt_edit" mnemonicParsing="false" prefHeight="30.0" prefWidth="422.0" text="Editar" />
                   <Button fx:id="bt_delete" mnemonicParsing="false" text="Deletar" />
               </buttons>
