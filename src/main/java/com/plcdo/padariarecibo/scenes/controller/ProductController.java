@@ -2,10 +2,16 @@ package com.plcdo.padariarecibo.scenes.controller;
 import com.plcdo.padariarecibo.scenes.dao.ProductDao;
 import com.plcdo.padariarecibo.scenes.model.Product;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -34,29 +40,24 @@ public class ProductController implements Initializable {
         Product product = new Product();
         ProductDao productDao = new ProductDao();
 
-
-    @FXML
-    public void show() {
-        String name = tf_name.getText().toString();
-
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Nome do Produto");
-        alert.setHeaderText("teste");
-        alert.setContentText(name);
-        alert.show();
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 
-    public void save(){
-            product.setCode(tf_code.getText().toString());
-            product.setName(tf_name.getText().toString());
-            String priceText = tf_price.getText().replace(",", ".");
-            product.setPrice(Double.parseDouble(priceText));
-            productDao.save(product);
+    public void registerProductScreen(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/plcdo/padariarecibo/scenes/RegisterProduct.fxml"));
+            AnchorPane anchorPane = fxmlLoader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("Register Product");
+            stage.setScene(new Scene(anchorPane));
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

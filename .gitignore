@@ -39,3 +39,4 @@ build/
 .DS_Store
 .idea/inspectionProfiles
 ./Docker-Compose/data/
+/Docker-Compose/data/
