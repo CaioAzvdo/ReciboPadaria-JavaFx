@@ -48,6 +48,7 @@ public class ProductController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         prepareTable();
+        showContextMenu();
     }
 
     void prepareTable(){
@@ -59,6 +60,39 @@ public class ProductController implements Initializable {
         productsObservableList = tb_products.getItems();
         productsObservableList.clear();
         productsObservableList.addAll(allProducts);
+    }
+
+    private ContextMenu createContextMenu(){
+        ContextMenu contextMenu = new ContextMenu();
+
+        MenuItem editItem = new MenuItem("Editar Produto");
+        editItem.setOnAction(event -> {
+            Product selectedProduct = tb_products.getSelectionModel().getSelectedItem();
+            if (selectedProduct != null){
+//                editProductScreen();
+            }
+        });
+        MenuItem deleteItem = new MenuItem("Excluir Produto");
+        deleteItem.setOnAction(event -> {
+           Product selectedProduct = tb_products.getSelectionModel().getSelectedItem();
+           if (selectedProduct != null){
+//               deleteProductScreen();
+           }
+        });
+        contextMenu.getItems().addAll(editItem, deleteItem);
+        return contextMenu;
+    }
+    private void showContextMenu(){
+        ContextMenu contextMenu = createContextMenu();
+        tb_products.setRowFactory(tv -> {
+            TableRow<Product> row = new TableRow<>();
+            row.setOnContextMenuRequested(event -> {
+                if (!row.isEmpty()){
+                    contextMenu.show(row, event.getScreenX(), event.getScreenY());
+                }
+            });
+            return row;
+        });
     }
 
 

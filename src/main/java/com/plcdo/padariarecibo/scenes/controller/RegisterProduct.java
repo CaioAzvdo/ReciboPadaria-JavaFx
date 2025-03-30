@@ -28,7 +28,7 @@ public class RegisterProduct {
     public void save(){
         if(validateFields()){
             product.setCode(tf_code.getText().toString());
-            product.setName(tf_name.getText().toString());
+            product.setName(tf_name.getText().toString().toUpperCase());
             String priceText = tf_price.getText().replace(",", ".");
             product.setPrice(Double.parseDouble(priceText));
             productDao.save(product);
