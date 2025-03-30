@@ -70,7 +70,7 @@ public class ProductController implements Initializable {
         editItem.setOnAction(event -> {
             Product selectedProduct = tb_products.getSelectionModel().getSelectedItem();
             if (selectedProduct != null){
-//                editProductScreen();
+                editProductScreen(selectedProduct);
             }
         });
         MenuItem deleteItem = new MenuItem("Excluir Produto");
@@ -109,6 +109,22 @@ public class ProductController implements Initializable {
             stage.setOnHidden(event -> prepareTable());
             stage.showAndWait();
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void editProductScreen(Product product){
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/plcdo/padariarecibo/scenes/EditProduct.fxml"));
+            AnchorPane anchorPane = fxmlLoader.load();
+            EditProduct controller = fxmlLoader.getController();
+            controller.setProduct(product);
+            Stage stage = new Stage();
+            stage.setTitle("Editar Produto");
+            stage.setScene(new Scene(anchorPane));
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setOnHidden(event -> prepareTable());
+            stage.showAndWait();
+        }catch(IOException e){
             e.printStackTrace();
         }
     }
