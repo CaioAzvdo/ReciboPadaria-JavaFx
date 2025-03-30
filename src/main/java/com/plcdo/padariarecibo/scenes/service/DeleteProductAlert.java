@@ -20,6 +20,6 @@ public class DeleteProductAlert {
             var id = product.getId();
             productDao.delete(id);
         }
-        
+
     }
 }

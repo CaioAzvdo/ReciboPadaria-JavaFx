@@ -26,14 +26,22 @@ public class RegisterProduct {
     ProductController productController = new ProductController();
 
     public void save(){
-        if(validateFields()){
-            product.setCode(tf_code.getText().toString());
-            product.setName(tf_name.getText().toString().toUpperCase());
-            String priceText = tf_price.getText().replace(",", ".");
-            product.setPrice(Double.parseDouble(priceText));
-            productDao.save(product);
-            Stage stage = (Stage) bt_save.getScene().getWindow();
-            stage.close();
+        try {
+            if (validateFields()) {
+                product.setCode(tf_code.getText().toString());
+                product.setName(tf_name.getText().toString().toUpperCase());
+                String priceText = tf_price.getText().replace(",", ".");
+                product.setPrice(Double.parseDouble(priceText));
+                productDao.save(product);
+                Stage stage = (Stage) bt_save.getScene().getWindow();
+                stage.close();
+            }
+        }catch (NumberFormatException message){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error ao salvar o produto");
+            alert.setContentText("Preço inválido");
+            alert.show();
         }
     }
     public boolean validateFields(){

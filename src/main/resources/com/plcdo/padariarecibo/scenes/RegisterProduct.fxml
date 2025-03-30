@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plcdo.padariarecibo.scenes.controller.RegisterProduct">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="402.0" prefWidth="367.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plcdo.padariarecibo.scenes.controller.RegisterProduct">
    <children>
       <Label alignment="CENTER" layoutX="111.0" layoutY="21.0" prefHeight="53.0" prefWidth="503.0" text="Cadastro de Produtos" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <font>
-            <Font size="37.0" />
+            <Font size="32.0" />
          </font>
       </Label>
       <GridPane layoutX="360.0" layoutY="140.0" prefHeight="280.0" prefWidth="580.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
@@ -50,6 +50,6 @@
             <TextField fx:id="tf_price" GridPane.rowIndex="5" />
          </children>
       </GridPane>
-      <Button fx:id="bt_save" layoutX="258.0" layoutY="328.0" mnemonicParsing="false" onAction="#save" prefHeight="45.0" prefWidth="85.0" text="Salvar" />
+      <Button fx:id="bt_save" layoutX="141.0" layoutY="330.0" mnemonicParsing="false" onAction="#save" prefHeight="45.0" prefWidth="85.0" text="Salvar" />
    </children>
 </AnchorPane>
