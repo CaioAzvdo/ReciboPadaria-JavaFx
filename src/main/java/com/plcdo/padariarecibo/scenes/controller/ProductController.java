@@ -1,6 +1,7 @@
 package com.plcdo.padariarecibo.scenes.controller;
 import com.plcdo.padariarecibo.scenes.dao.ProductDao;
 import com.plcdo.padariarecibo.scenes.model.Product;
+import com.plcdo.padariarecibo.scenes.service.DeleteProductAlert;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -76,7 +77,8 @@ public class ProductController implements Initializable {
         deleteItem.setOnAction(event -> {
            Product selectedProduct = tb_products.getSelectionModel().getSelectedItem();
            if (selectedProduct != null){
-//               deleteProductScreen();
+               DeleteProductAlert.deleteProduct(selectedProduct);
+               prepareTable();
            }
         });
         contextMenu.getItems().addAll(editItem, deleteItem);
