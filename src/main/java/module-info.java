@@ -4,6 +4,7 @@ module com.plcdo.padariarecibo {
     requires java.desktop;
     requires java.sql;
     requires postgresql;
+    requires barbecue;
 
 
     opens com.plcdo.padariarecibo to javafx.fxml;
