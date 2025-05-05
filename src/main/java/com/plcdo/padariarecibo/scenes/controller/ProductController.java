@@ -1,4 +1,5 @@
 package com.plcdo.padariarecibo.scenes.controller;
+import com.plcdo.padariarecibo.barcode.RecipeGenerator;
 import com.plcdo.padariarecibo.scenes.dao.ProductDao;
 import com.plcdo.padariarecibo.scenes.model.Product;
 import com.plcdo.padariarecibo.scenes.service.DeleteProductAlert;
@@ -81,7 +82,20 @@ public class ProductController implements Initializable {
                prepareTable();
            }
         });
-        contextMenu.getItems().addAll(editItem, deleteItem);
+        MenuItem printItem = new MenuItem("Imprimir Produto");
+        printItem.setOnAction(event -> {
+            Product selectedProduct = tb_products.getSelectionModel().getSelectedItem();
+            if (selectedProduct != null){
+                new Thread(() -> {
+                    try {
+                        RecipeGenerator.generateRecipe(selectedProduct.getCode(), selectedProduct.getName(), 1);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }).start();
+            }
+        });
+        contextMenu.getItems().addAll(editItem, deleteItem, printItem);
         return contextMenu;
     }
     private void showContextMenu(){
