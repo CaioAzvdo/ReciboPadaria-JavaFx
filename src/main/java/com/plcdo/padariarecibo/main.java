@@ -12,6 +12,7 @@ public class main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+
         window = stage;
         window.setTitle("Padaria Recibo");
         Parent rootScreen = FXMLLoader.load(getClass().getResource("scenes/Product.fxml"));
